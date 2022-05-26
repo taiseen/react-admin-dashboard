@@ -59,9 +59,7 @@ Learning by inspired from[.](https://youtu.be/jx5hdo50a2M)
 
 
 
-## 📜 License under the [MIT License][license]
-
+## 📜 License under the [MIT License](license)
 
 
 [link]: www
-[license]: https://choosealicense.com/licenses/mit/#

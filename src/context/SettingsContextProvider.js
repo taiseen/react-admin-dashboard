@@ -31,6 +31,8 @@ export const SettingsContextProvider = ({ children }) => {
         localStorage.setItem('colorMode', color);
     };
 
+    
+    // only 1 specific {key:value} wanted to be true, according to user click...
     const handleClick = clicked => setIsClicked({ ...initialState, [clicked]: true });
 
 

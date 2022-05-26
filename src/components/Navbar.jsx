@@ -35,8 +35,6 @@ const Navbar = () => {
 
   const { setActiveMenu, currentColor, handleClick, isClicked, screenSize, setScreenSize } = useSettingsContext();
 
-  // const handleActiveMenu = () => setActiveMenu(!activeMenu);
-
   // this useEffect is responsible only for ==> 
   // set browser window width size 
   useEffect(() => {
@@ -72,7 +70,7 @@ const Navbar = () => {
 
       <NavButton
         title='Menu'
-        color={'red'}
+        color={currentColor}
         icon={<AiOutlineMenu />}
         customFun={() => setActiveMenu(prev => !prev)}
       />
@@ -97,7 +95,7 @@ const Navbar = () => {
         <NavButton
           title="Notification"
           color={currentColor}
-          dotColor="rgb(254, 201, 15)"
+          dotColor="rgb(255, 50, 15)"
           icon={<RiNotification3Line />}
           customFun={() => handleClick('notification')}
         />
@@ -123,10 +121,10 @@ const Navbar = () => {
         </TooltipComponent>
 
 
-        {isClicked.cart && (<Cart />)}
-        {isClicked.chat && (<Chat />)}
-        {isClicked.notification && (<Notification />)}
-        {isClicked.userProfile && (<UserProfile />)}
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div >
   );

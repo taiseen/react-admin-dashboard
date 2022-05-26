@@ -12,7 +12,6 @@ const Button = ({ color, bgColor, text, size, borderRadius }) => {
     >
       {text}
     </button>
-
   )
 }
 
