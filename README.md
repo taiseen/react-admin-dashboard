@@ -6,9 +6,6 @@
 
 # TailwindCSS + React + Syncfusion
 
-```
-yarn --legacy-peer-deps
-```
 
 ## Yarn base packages...
 |No| Package Installs   | Use for                       |
@@ -19,12 +16,13 @@ yarn --legacy-peer-deps
 | 4| TailwindCSS        | custom UI design by CSS       |
 | 5| Syncfusion         | pre-build component for UI    |
 
+```
+yarn --legacy-peer-deps
+```
 
+## Project Structure
 
-<br/>
-
-
-    🟨
+    
     ├── public                # root div#id for react app
     ├── src
     |   ├── components        # all needful components 
@@ -42,7 +40,7 @@ yarn --legacy-peer-deps
     ├── README.md             # info about this project 
     ├── tailwind.config.js    # tailwindCss basic styling properties
     └── yarn.lock             # main source of info about the current versions of dependencies
-    🟨
+    
 
 
 ## Learning context by developing this application:
@@ -51,10 +49,9 @@ yarn --legacy-peer-deps
 | 1| Project Structure                                  | 
 | 2| SideBar toggling base on true/false                | 
 | 3| Dynamically Tailwind class add base on true/false  | 
-| 3| Using of Syncfusion components base on demanded UI | 
+| 4| Using of Syncfusion components base on demanded UI |
+| 5| Syncfusion SparkLine, Pai, Line, Bar, Charts using |
+| 6| Theme Settings by Context API globally data passing|
 
 
-
-[link]: www
-
-<!-- https://youtu.be/jx5hdo50a2M -->
+[link]: https://admin-dashboard-demo.netlify.app

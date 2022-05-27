@@ -67,12 +67,12 @@ const App = () => {
           }
 
           {/* 🟨🟨🟨 UI For ==> Right Side Section | toggling ==> margin-left:18rem */}
-          <div className={`w-full min-h-screen bg-main-bg dark:bg-main-dark-bg
+          <div className={`w-full min-h-screen bg-gray-200 dark:bg-main-dark-bg
                           ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
 
 
             {/* 🟨🟨🟨 UI For ==> NavBar */}
-            <div className="navbar fixed md:static w-full bg-main-bg dark:bg-main-dark-bg">
+            <div className="navbar fixed md:static top-0 w-full bg-gray-200 dark:bg-main-dark-bg">
               <Navbar />
             </div>
 
