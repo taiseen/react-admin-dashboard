@@ -30,7 +30,8 @@ const NavButton = ({ title, customFun, icon, color, dotColor }) => (
 )
 
 
-// this <Component /> call from ==> 🟨 ../../App.js 🟨 <Component />
+// this <Component /> call from ==> 
+// 🟨 ../../App.js 🟨 <Component />
 const Navbar = () => {
 
   const { setActiveMenu, currentColor, handleClick, isClicked, screenSize, setScreenSize } = useSettingsContext();

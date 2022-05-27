@@ -1,7 +1,7 @@
-import React from 'react'
 
 
-// this <Component /> call from ==> 🟨 ../pages/Ecommerce.js 🟨 <Component />
+// this <Component /> call from ==> 
+// 🟨 ../pages/Ecommerce.js 🟨 <Component />
 const Button = ({ color, bgColor, text, size, borderRadius }) => {
 
   return (

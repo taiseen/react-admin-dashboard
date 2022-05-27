@@ -6,7 +6,8 @@ import { SiShopware } from 'react-icons/si';
 import { links } from '../data/dummy';
 
 
-// this <Component /> call from ==> 🟨 ../../App.js 🟨 <Component />
+// this <Component /> call from ==> 
+// 🟨 ../../App.js 🟨 <Component />
 const Sidebar = () => {
 
   const { activeMenu, setActiveMenu, screenSize } = useSettingsContext();

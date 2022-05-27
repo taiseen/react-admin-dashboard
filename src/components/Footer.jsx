@@ -1,3 +1,5 @@
+// this <Component /> call from ==> 
+// 🟨 ../../App.js 🟨 <Component />
 const Footer = () => (
 
   <div className="mt-24">

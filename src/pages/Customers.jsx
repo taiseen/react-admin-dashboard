@@ -1,9 +1,10 @@
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
-import { customersData, customersGrid } from '../data/dummy';
+import { customersData, customersGridColumnsHeader } from '../data/dummy';
 import { Header } from '../components';
 
 
-// this <Component /> call from ==> 🟨 App.js 🟨 React <Router /> Dom
+// this <Component /> call from ==> 
+// 🟨 App.js 🟨 React <Router /> Dom
 const Customers = () => {
 
   const toolbarOptions = ['Delete'];
@@ -28,11 +29,13 @@ const Customers = () => {
       >
         <ColumnsDirective>
           {
-            customersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)
+            customersGridColumnsHeader.map((columnHeader, index) => (
+              <ColumnDirective key={index} {...columnHeader} />
+            ))
           }
         </ColumnsDirective>
 
-        {/* Help to move in 2nd pages...  */}
+        {/* Help to move at next pages...  */}
         <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter]} />
 
       </GridComponent>

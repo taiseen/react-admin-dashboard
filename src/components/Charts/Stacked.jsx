@@ -3,7 +3,8 @@ import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from '.
 import { useSettingsContext } from '../../context/SettingsContextProvider';
 
 
-// this <Component /> call from ==> 🟨 ../pages/Ecommerce.js 🟨 <Component />
+// this <Component /> call from ==> 
+// 🟨 ../pages/Ecommerce.js 🟨 <Component />
 const Stacked = ({ width, height }) => {
 
     const { currentMode } = useSettingsContext();

@@ -2,7 +2,8 @@ import { SparklineComponent, Inject, SparklineTooltip } from '@syncfusion/ej2-re
 import React from 'react';
 
 
-// this <Component /> call from ==> 🟨 ../pages/Ecommerce.js 🟨 <Component />
+// this <Component /> call from ==> 
+// 🟨 ../pages/Ecommerce.js 🟨 <Component />
 class SparkLine extends React.PureComponent {
 
   render() {

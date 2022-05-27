@@ -8,7 +8,8 @@ import { IoIosMore } from 'react-icons/io';
 import product9 from '../data/product9.jpg';
 
 
-// this <Component /> call from ==> 🟨 App.js 🟨 React <Router /> Dom
+// this <Component /> call from ==> 
+// 🟨 App.js 🟨 React <Router /> Dom
 const Ecommerce = () => {
 
   const { currentColor, currentMode } = useSettingsContext();
@@ -58,7 +59,7 @@ const Ecommerce = () => {
 
                 <p className="mt-3">
                   <span className="text-lg font-semibold">{item.amount}</span>
-                  <span className={` ml-2 text-sm text-${item.pcColor}`}>
+                  <span className={`text-${item.pcColor} text-sm ml-2`}>
                     {item.percentage}
                   </span>
                 </p>

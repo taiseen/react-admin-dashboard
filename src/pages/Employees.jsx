@@ -1,9 +1,10 @@
 import { GridComponent, Inject, ColumnsDirective, ColumnDirective, Search, Page, Toolbar } from '@syncfusion/ej2-react-grids';
-import { employeesData, employeesGrid } from '../data/dummy';
+import { employeesData, employeesGridColumnsHeader } from '../data/dummy';
 import { Header } from '../components';
 
 
-// this <Component /> call from ==> 🟨 App.js 🟨 React <Router /> Dom
+// this <Component /> call from ==> 
+// 🟨 App.js 🟨 React <Router /> Dom
 const Employees = () => {
 
   const toolbarOptions = ['Search'];
@@ -26,11 +27,13 @@ const Employees = () => {
       >
         <ColumnsDirective>
           {
-            employeesGrid.map((item, index) => <ColumnDirective key={index} {...item} />)
+            employeesGridColumnsHeader.map((columnHeader, index) => (
+              <ColumnDirective key={index} {...columnHeader} />
+            ))
           }
         </ColumnsDirective>
 
-        {/* Help to move in 2nd pages...  */}
+        {/* Help to move at next pages...  */}
         <Inject services={[Search, Page, Toolbar]} />
 
       </GridComponent>
