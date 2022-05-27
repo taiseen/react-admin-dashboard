@@ -8,6 +8,21 @@ import { IoIosMore } from 'react-icons/io';
 import product9 from '../data/product9.jpg';
 
 
+const DropDown = ({ currentMode }) => (
+  <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
+    <DropDownListComponent
+      id="time"
+      value="1"
+      popupWidth="120px"
+      popupHeight="220px"
+      dataSource={dropdownData}
+      fields={{ text: 'Time', value: 'Id' }}
+      style={{ border: 'none', color: (currentMode === 'Dark') && 'white' }}
+    />
+  </div>
+);
+
+
 // this <Component /> call from ==> 
 // 🟨 App.js 🟨 React <Router /> Dom
 const Ecommerce = () => {
@@ -18,48 +33,53 @@ const Ecommerce = () => {
     <div className='mt-12'>
 
       {/* 🟨🟨🟨 UI For ==> Section 1 */}
-      <div className="flex flex-wrap lg:flex-nowrap justify-center">
+      <div className="flex flex-wrap lg:flex-nowrap justify-center ">
 
         {/* 🟨🟨🟨 UI For ==> hero banner */}
-        <div className="w-full h-44 p-8 pt-9 m-3 rounded-xl bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-hero-pattern bg-no-repeat bg-cover bg-center"
-        >
+        <div className="h-44 w-full lg:w-80 p-8 pt-9 m-3 rounded-xl 
+        bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-hero-pattern bg-no-repeat bg-cover bg-center">
+
           <div className="flex justify-between items-center">
             <div>
-              <p className='font-bold text-gray-400'>Earning</p>
-              <p className='text-xl'>$65,455.95</p>
+              <p className="font-bold text-gray-400">Earnings</p>
+              <p className="text-2xl">$63,448.78</p>
             </div>
+            <button
+              type="button"
+              style={{ backgroundColor: currentColor }}
+              className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
+            >
+              <BsCurrencyDollar />
+            </button>
           </div>
 
           <div className="mt-6">
             <Button
-              size='md'
-              color='white'
-              bgColor='blue'
-              text='Download'
-              borderRadius='10px'
+              color="white"
+              text="Download"
+              borderRadius="10px"
+              bgColor={currentColor}
             />
           </div>
         </div>
 
-
-        <div className='m-3 flex flex-wrap justify-center items-center gap-1'>
-          { // 🟨🟨🟨 UI For ==> sales matrix box
-            earningData.map(item => (
+        {/* 🟨🟨🟨 UI For ==> status matrix box */}
+        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+          {
+            earningData.map((item) => (
               <div
                 key={item.title}
-                className="p-4 pt-9 rounded-xl bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56"
-              >
+                className="md:w-56 h-44 p-4 pt-9 rounded-2xl bg-white dark:text-gray-200 dark:bg-secondary-dark-bg">
                 <button
-                  type='button'
+                  type="button"
                   style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                  className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'
+                  className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
                 >
                   {item.icon}
                 </button>
-
                 <p className="mt-3">
                   <span className="text-lg font-semibold">{item.amount}</span>
-                  <span className={`text-${item.pcColor} text-sm ml-2`}>
+                  <span className={`text-sm text-${item.pcColor} ml-2`}>
                     {item.percentage}
                   </span>
                 </p>
@@ -68,33 +88,36 @@ const Ecommerce = () => {
             ))
           }
         </div>
+
       </div>
 
 
       {/* 🟨🟨🟨 UI For ==> Section 2 */}
-      <div className="flex flex-wrap justify-center gap-10">
-        <div className="m-3 p-4 rounded-2xl md:w-780 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg">
-
+      <div className="flex gap-10 flex-wrap justify-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
-            <p className="font-semibold text-xl">Revenue Update</p>
+            <p className="font-semibold text-xl">Revenue Updates</p>
             <div className="flex items-center gap-4">
-              <p className='flex items-center gap-2 text-gray-600 hover:drop-shadow-xl'>
-                <span><GoPrimitiveDot /></span>
-                <span>Expanse</span>
+              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
+                <span>
+                  <GoPrimitiveDot />
+                </span>
+                <span>Expense</span>
               </p>
-              <p className='flex items-center gap-2 text-green-600 hover:drop-shadow-xl'>
-                <span><GoPrimitiveDot /></span>
+              <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
+                <span>
+                  <GoPrimitiveDot />
+                </span>
                 <span>Budget</span>
               </p>
             </div>
           </div>
-
           <div className="mt-10 flex gap-10 flex-wrap justify-center">
-            <div className="border-r-1 border-color m-4 pr-10">
+            <div className=" border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
                   <span className="text-3xl font-semibold">$93,438</span>
-                  <span className="p-1.5 ml-3 text-xs cursor-pointer rounded-full text-white bg-green-400 hover:drop-shadow-xl">
+                  <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">
                     23%
                   </span>
                 </p>
@@ -102,27 +125,19 @@ const Ecommerce = () => {
               </div>
               <div className="mt-8">
                 <p className="text-3xl font-semibold">$48,487</p>
+
                 <p className="text-gray-500 mt-1">Expense</p>
               </div>
 
               <div className="mt-5">
-                <SparkLine
-                  type="Line"
-                  width="250px"
-                  height="80px"
-                  id="line-sparkLine"
-                  color={currentColor}
-                  data={SparklineAreaData}
-                  currentColor={currentColor}
-                />
+                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
               </div>
-
               <div className="mt-10">
                 <Button
                   color="white"
-                  borderRadius="10px"
-                  text="Download Report"
                   bgColor={currentColor}
+                  text="Download Report"
+                  borderRadius="10px"
                 />
               </div>
             </div>
@@ -131,52 +146,89 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
+        <div>
+          <div
+            className=" rounded-2xl md:w-400 p-4 m-3"
+            style={{ backgroundColor: currentColor }}
+          >
+            <div className="flex justify-between items-center ">
+              <p className="font-semibold text-white text-2xl">Earnings</p>
+
+              <div>
+                <p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
+                <p className="text-gray-200">Monthly revenue</p>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+            </div>
+          </div>
+
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
+            <div>
+              <p className="text-2xl font-semibold ">$43,246</p>
+              <p className="text-gray-400">Yearly sales</p>
+            </div>
+
+            <div className="w-40">
+              <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" />
+            </div>
+          </div>
+        </div>
       </div>
 
 
       {/* 🟨🟨🟨 UI For ==> Section 3 */}
-      {/* <div className="flex gap-10 m-4 flex-wrap justify-center">
+      <div className="flex gap-10 m-4 flex-wrap justify-center">
+
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
+
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-semibold">Recent Transactions</p>
             <DropDown currentMode={currentMode} />
           </div>
+
           <div className="mt-10 w-72 md:w-400">
-            {recentTransactions.map((item) => (
-              <div key={item.title} className="flex justify-between mt-4">
-                <div className="flex gap-4">
-                  <button
-                    type="button"
-                    style={{
-                      color: item.iconColor,
-                      backgroundColor: item.iconBg,
-                    }}
-                    className="text-2xl rounded-lg p-4 hover:drop-shadow-xl"
-                  >
-                    {item.icon}
-                  </button>
-                  <div>
-                    <p className="text-md font-semibold">{item.title}</p>
-                    <p className="text-sm text-gray-400">{item.desc}</p>
+            {
+              recentTransactions.map((item) => (
+                <div key={item.title} className="flex justify-between mt-4">
+                  <div className="flex gap-4">
+                    <button
+                      type="button"
+                      style={{
+                        color: item.iconColor,
+                        backgroundColor: item.iconBg,
+                      }}
+                      className="text-2xl rounded-lg p-4 hover:drop-shadow-xl"
+                    >
+                      {item.icon}
+                    </button>
+                    <div>
+                      <p className="text-md font-semibold">{item.title}</p>
+                      <p className="text-sm text-gray-400">{item.desc}</p>
+                    </div>
                   </div>
+                  <p className={`text-${item.pcColor}`}>{item.amount}</p>
                 </div>
-                <p className={`text-${item.pcColor}`}>{item.amount}</p>
-              </div>
-            ))}
+              ))
+            }
           </div>
+
           <div className="flex justify-between items-center mt-5 border-t-1 border-color">
             <div className="mt-3">
               <Button
-                color="white"
-                bgColor={currentColor}
                 text="Add"
+                color="white"
                 borderRadius="10px"
+                bgColor={currentColor}
               />
             </div>
-
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
+
         </div>
+
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
           <div className="flex justify-between items-center gap-2 mb-10">
             <p className="text-xl font-semibold">Sales Overview</p>
@@ -186,12 +238,14 @@ const Ecommerce = () => {
             <LineChart />
           </div>
         </div>
-      </div> */}
+      </div>
 
 
       {/* 🟨🟨🟨 UI For ==> Section 4 */}
-      {/* <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center">
+
         <div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
             <button type="button" className="text-xl font-semibold text-gray-500">
@@ -200,27 +254,37 @@ const Ecommerce = () => {
           </div>
 
           <div className="mt-10 ">
-            {weeklyStats.map((item) => (
-              <div key={item.title} className="flex justify-between mt-4 w-full">
-                <div className="flex gap-4">
-                  <button
-                    type="button"
-                    style={{ background: item.iconBg }}
-                    className="text-2xl hover:drop-shadow-xl text-white rounded-full p-3"
-                  >
-                    {item.icon}
-                  </button>
-                  <div>
-                    <p className="text-md font-semibold">{item.title}</p>
-                    <p className="text-sm text-gray-400">{item.desc}</p>
+            {
+              weeklyStats.map((item) => (
+                <div key={item.title} className="flex justify-between mt-4 w-full">
+                  <div className="flex gap-4">
+                    <button
+                      type="button"
+                      style={{ background: item.iconBg }}
+                      className="text-2xl hover:drop-shadow-xl text-white rounded-full p-3"
+                    >
+                      {item.icon}
+                    </button>
+                    <div>
+                      <p className="text-md font-semibold">{item.title}</p>
+                      <p className="text-sm text-gray-400">{item.desc}</p>
+                    </div>
                   </div>
-                </div>
 
-                <p className={`text-${item.pcColor}`}>{item.amount}</p>
-              </div>
-            ))}
+                  <p className={`text-${item.pcColor}`}>{item.amount}</p>
+                </div>
+              ))
+            }
             <div className="mt-4">
-              <SparkLine currentColor={currentColor} id="area-sparkLine" height="160px" type="Area" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+              <SparkLine
+                type="Area"
+                width="320"
+                height="160px"
+                id="area-sparkLine"
+                data={SparklineAreaData}
+                color="rgb(242, 252, 253)"
+                currentColor={currentColor}
+              />
             </div>
           </div>
 
@@ -311,7 +375,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
     </div>
   )

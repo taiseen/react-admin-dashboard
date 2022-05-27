@@ -11,14 +11,30 @@ import './styles/App.css';
 
 const App = () => {
 
-  const { activeMenu } = useSettingsContext();
+  const { activeMenu,
+    currentMode, setCurrentMode,
+    currentColor, setCurrentColor,
+    themeSettings, setThemeSettings } = useSettingsContext();
+
+
+  useEffect(() => {
+    const currentThemeColor = localStorage.getItem('colorMode');
+    const currentThemeMode = localStorage.getItem('themeMode');
+    if (currentThemeColor && currentThemeMode) {
+      setCurrentColor(currentThemeColor);
+      setCurrentMode(currentThemeMode);
+    }
+  }, []);
+
+
 
   return (
-    <div className=''>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
+
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
 
-          {/* 🟨🟨🟨 UI for ==> bottom settings ⚙ icon */}
+          {/* 🟨🟨🟨 UI For ==> bottom settings ⚙ icon */}
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
             <TooltipComponent
               content='Settings'
@@ -26,8 +42,8 @@ const App = () => {
             >
               <button
                 type='button'
-                // onClick={() => setThemeSettings(true)}
-                // style={{ background: currentColor, borderRadius: '50%' }}
+                onClick={() => setThemeSettings(true)}
+                style={{ background: currentColor, borderRadius: '50%' }}
                 className="p-3 text-3xl hover:drop-shadow-xl hover:bg-light-gray text-white"
               >
                 <FiSettings />
@@ -36,7 +52,7 @@ const App = () => {
           </div>
 
 
-          { // 🟨🟨🟨 UI for ==> SideBar | on/off | SideBar toggling
+          { // 🟨🟨🟨 UI For ==> SideBar | on/off | SideBar toggling
             activeMenu
               ? (
                 <div className='sidebar w-72 fixed dark:bg-secondary-dark-bg bg-white duration-300 ease'>
@@ -50,21 +66,24 @@ const App = () => {
               )
           }
 
-          {/* 🟨🟨🟨 UI for ==> Right Side Section | toggling ==> margin-left:18rem */}
-          <div className={`w-full min-h-screen dark:bg-main-bg bg-main-bg 
+          {/* 🟨🟨🟨 UI For ==> Right Side Section | toggling ==> margin-left:18rem */}
+          <div className={`w-full min-h-screen bg-main-bg dark:bg-main-dark-bg
                           ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
 
 
-            {/* 🟨🟨🟨 UI for ==> NavBar */}
+            {/* 🟨🟨🟨 UI For ==> NavBar */}
             <div className="navbar fixed md:static w-full bg-main-bg dark:bg-main-dark-bg">
               <Navbar />
             </div>
 
 
-            {/* 🟨🟨🟨 Route's for ==> going to different-different Component's  */}
             <div>
-              {/* {themeSettings && (<ThemeSettings />)} */}
+              { // 🟨🟨🟨 UI For ==> side panel of theme settings <Component />
+                // display this <Component />, based on 'true' value
+                themeSettings && <ThemeSettings />
+              }
 
+              {/* 🟨🟨🟨 Route's for ==> going to different-different Component's  */}
               <Routes>
                 {/* 🟩🟩🟩 For ==> Dashboard */}
                 <Route path="/" element={<Ecommerce />} />

@@ -1,16 +1,17 @@
 import { useSettingsContext } from '../context/SettingsContextProvider';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Cart, Chat, Notification, UserProfile } from '.';
+import { FiSearch, FiShoppingCart } from 'react-icons/fi';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { useEffect } from 'react';
 import avatar from '../data/avatar.jpg';
+import SearchBar from './SearchBar';
 
 
-// NavBar child <Component />, use for custom button's...
+// NavBar's child <Component /> | use it for custom button's...
 const NavButton = ({ title, customFun, icon, color, dotColor }) => (
 
   <TooltipComponent content={title} position='BottomCenter'>
@@ -69,12 +70,21 @@ const Navbar = () => {
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
 
-      <NavButton
-        title='Menu'
-        color={currentColor}
-        icon={<AiOutlineMenu />}
-        customFun={() => setActiveMenu(prev => !prev)}
-      />
+      <div className='flex '>
+        <NavButton
+          title='Menu'
+          color={currentColor}
+          icon={<AiOutlineMenu />}
+          customFun={() => setActiveMenu(prev => !prev)}
+        />
+
+        <NavButton
+          title='Menu'
+          color={currentColor}
+          icon={<FiSearch />}
+          customFun={() => handleClick('search')}
+        />
+      </div>
 
       <div className="flex">
 
@@ -121,7 +131,7 @@ const Navbar = () => {
           </div>
         </TooltipComponent>
 
-
+        {isClicked.search && <SearchBar />}
         {isClicked.cart && <Cart />}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />}

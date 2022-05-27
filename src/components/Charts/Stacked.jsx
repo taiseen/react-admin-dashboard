@@ -5,6 +5,7 @@ import { useSettingsContext } from '../../context/SettingsContextProvider';
 
 // this <Component /> call from ==> 
 // 🟨 ../pages/Ecommerce.js 🟨 <Component />
+// 🟨 ../pages/Charts/Stacked.js 🟨 <Component />
 const Stacked = ({ width, height }) => {
 
     const { currentMode } = useSettingsContext();

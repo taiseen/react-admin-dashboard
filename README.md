@@ -55,11 +55,6 @@ yarn --legacy-peer-deps
 
 
 
-Learning by inspired from[.](https://youtu.be/jx5hdo50a2M)
-
-
-
-## 📜 License under the [MIT License](license)
-
-
 [link]: www
+
+<!-- https://youtu.be/jx5hdo50a2M -->

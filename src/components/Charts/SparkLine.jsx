@@ -26,6 +26,7 @@ class SparkLine extends React.PureComponent {
         markerSettings={{ visible: ['All'], size: 2.5, fill: currentColor }}
         tooltipSettings={{
           visible: true,
+           // eslint-disable-next-line no-template-curly-in-string
           format: '${x} : data ${yval}',
           trackLineSettings: {
             visible: true,
