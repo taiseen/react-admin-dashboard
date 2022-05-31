@@ -17,18 +17,21 @@ const returnValue = financialChartData.filter(filterValue);
 
 // this <Component /> call from ==> 
 // 🟨 App.js 🟨 React <Router /> Dom
-const Financial = () => {
+const Financial = ({ handleNavBarClose }) => {
 
   const { currentMode } = useSettingsContext();
 
 
   return (
-    <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+    <div
+      onClick={handleNavBarClose} // for auto navbar close
+      className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl"
+    >
 
       <ChartsHeader category="Financial" title="AAPLE Historical" />
 
       <div className="w-full">
-        
+
         <ChartComponent
           id="charts"
           primaryXAxis={FinancialPrimaryXAxis}

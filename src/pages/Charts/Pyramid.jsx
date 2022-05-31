@@ -6,13 +6,16 @@ import { PyramidData } from '../../data/dummy';
 
 // this <Component /> call from ==> 
 // 🟨 App.js 🟨 React <Router /> Dom
-const Pyramid = () => {
+const Pyramid = ({ handleNavBarClose }) => {
 
   const { currentMode } = useSettingsContext();
 
-  
+
   return (
-    <div className="m-4 md:m-10 mt-24  p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+    <div
+      onClick={handleNavBarClose} // for auto navbar close
+      className="m-4 md:m-10 mt-24  p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl"
+    >
 
       <ChartsHeader category="Pyramid" title="Food Comparison Chart" />
 

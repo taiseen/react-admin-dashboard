@@ -5,7 +5,7 @@ import { Header } from '../components';
 
 // this <Component /> call from ==> 
 // 🟨 App.js 🟨 React <Router /> Dom
-const Customers = () => {
+const Customers = ({ handleNavBarClose }) => {
 
   const toolbarOptions = ['Delete'];
   const selectionSettings = { persistSelection: true };
@@ -13,7 +13,10 @@ const Customers = () => {
 
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div
+      className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl"
+      onClick={handleNavBarClose}  // fro navbar menus auto close
+    >
 
       <Header category="Page" title="Customers" />
 

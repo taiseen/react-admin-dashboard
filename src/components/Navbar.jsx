@@ -70,7 +70,7 @@ const Navbar = () => {
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
 
-      <div className='flex '>
+      <div className='flex'>
         <NavButton
           title='Menu'
           color={currentColor}
@@ -79,7 +79,7 @@ const Navbar = () => {
         />
 
         <NavButton
-          title='Menu'
+          title='Search'
           color={currentColor}
           icon={<FiSearch />}
           customFun={() => handleClick('search')}
@@ -131,12 +131,14 @@ const Navbar = () => {
           </div>
         </TooltipComponent>
 
+
         {isClicked.search && <SearchBar />}
         {isClicked.cart && <Cart />}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />}
         {isClicked.userProfile && <UserProfile />}
       </div>
+      
     </div >
   );
 }

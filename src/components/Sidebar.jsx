@@ -8,7 +8,7 @@ import { links } from '../data/dummy';
 
 // this <Component /> call from ==> 
 // 🟨 ../../App.js 🟨 <Component />
-const Sidebar = () => {
+const Sidebar = ({ handleNavBarClose }) => {
 
   const { activeMenu, setActiveMenu, screenSize, currentColor } = useSettingsContext();
 
@@ -23,10 +23,13 @@ const Sidebar = () => {
     }
   }
 
+
   return (
-    <div className='ml-3 pb-10 h-screen overflow-auto
-                    md:overflow-hidden 
-                    md:hover:overflow-auto'
+    <div
+      onClick={handleNavBarClose}  // fro navbar menus auto close
+      className='ml-3 pb-10 h-screen overflow-auto
+                md:overflow-hidden 
+                md:hover:overflow-auto'
     >
       {
         activeMenu && (
@@ -38,10 +41,10 @@ const Sidebar = () => {
               <Link
                 to='/'
                 onClick={handleCloseSidebar}
-                className='w-full flex items-center gap-3 ml-3 mt-4 text-2xl font-extrabold tracking-tight dark:text-white text-slate-900 hover:text-red-400 duration-300'
+                className='w-full flex items-center gap-3 ml-3 mt-4 text-2xl font-extrabold tracking-tight dark:text-white text-slate-900 hover:text-red-400 dark:hover:text-red-400 duration-300'
               >
                 <SiShopware />
-                <span >Shop</span>
+                <span>Shop</span>
               </Link>
 
               <TooltipComponent content='Menu Close' position='BottomCenter'>
@@ -75,7 +78,6 @@ const Sidebar = () => {
                           className={({ isActive }) => isActive ? activeLink : normalLink}
                           style={({ isActive }) => ({
                             backgroundColor: isActive ? currentColor : '',
-                            // color: isActive ? 'white' : '',
                           })}
                         >
                           <span className='group-hover:text-red-500'>{link.icon}</span>

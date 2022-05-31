@@ -25,12 +25,15 @@ const DropDown = ({ currentMode }) => (
 
 // this <Component /> call from ==> 
 // 🟨 App.js 🟨 React <Router /> Dom
-const Ecommerce = () => {
+const Ecommerce = ({ handleNavBarClose }) => {
 
   const { currentColor, currentMode } = useSettingsContext();
 
   return (
-    <div className='mt-12'>
+    <div
+      className='mt-12'
+      onClick={handleNavBarClose} // for navbar menus auto close
+    >
 
       {/* 🟨🟨🟨 UI For ==> Section 1 */}
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
@@ -381,4 +384,4 @@ const Ecommerce = () => {
   )
 }
 
-export default Ecommerce
+export default Ecommerce;

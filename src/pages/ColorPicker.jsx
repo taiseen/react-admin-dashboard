@@ -7,7 +7,7 @@ const change = (args) => {
 };
 
 
-const CustomColorPicker = ({ id, mode }) =>
+const CustomColorPicker = ({ id, mode }) => (
   <ColorPickerComponent
     inline
     id={id}
@@ -16,12 +16,17 @@ const CustomColorPicker = ({ id, mode }) =>
     showButtons={false}
     modeSwitcher={false}
   />
-  ;
+);
 
 
-const ColorPicker = () => (
+// this <Component /> call from ==> 
+// 🟨 App.js 🟨 React <Router /> Dom
+const ColorPicker = ({ handleNavBarClose }) => (
 
-  <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+  <div
+    onClick={handleNavBarClose}  // fro navbar menus auto close
+    className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl"
+  >
 
     <Header category="App" title="Color Picker" />
 

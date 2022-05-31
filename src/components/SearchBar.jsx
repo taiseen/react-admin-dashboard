@@ -21,8 +21,8 @@ const SearchBar = () => {
                     <Button
                         size="2xl"
                         borderRadius="50%"
-                        bgHoverColor="light-gray"
                         color={currentColor}
+                        bgHoverColor="light-gray"
                         icon={<MdOutlineCancel />}
                     />
                 </div>

@@ -5,14 +5,17 @@ import { Header } from '../components';
 
 // this <Component /> call from ==> 
 // 🟨 App.js 🟨 React <Router /> Dom
-const Employees = () => {
+const Employees = ({ handleNavBarClose }) => {
 
   const toolbarOptions = ['Search'];
   const editing = { allowDeleting: true, allowEditing: true };
 
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div
+      onClick={handleNavBarClose}  // fro navbar menus auto close
+      className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl"
+    >
 
       <Header category="Page" title="Employees" />
 

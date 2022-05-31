@@ -2,7 +2,7 @@
 
 > 26 - May - 2022 
 
-## DashBoard | [Live Link][link]
+## Admin DashBoard | [Live Link][link]
 
 # TailwindCSS + React + Syncfusion
 

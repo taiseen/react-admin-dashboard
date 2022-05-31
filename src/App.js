@@ -14,7 +14,8 @@ const App = () => {
   const { activeMenu,
     currentMode, setCurrentMode,
     currentColor, setCurrentColor,
-    themeSettings, setThemeSettings } = useSettingsContext();
+    themeSettings, setThemeSettings,
+    setIsClicked, initialState } = useSettingsContext();
 
 
   useEffect(() => {
@@ -27,6 +28,14 @@ const App = () => {
   }, []);
 
 
+  const handleClick = () => {
+    setThemeSettings(true);
+    setIsClicked(initialState);
+  }
+
+  const handleNavBarClose = () => {
+    setIsClicked(initialState);
+  }
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
@@ -42,7 +51,7 @@ const App = () => {
             >
               <button
                 type='button'
-                onClick={() => setThemeSettings(true)}
+                onClick={handleClick}
                 style={{ background: currentColor, borderRadius: '50%' }}
                 className="p-3 text-3xl hover:drop-shadow-xl hover:bg-light-gray text-white"
               >
@@ -56,12 +65,12 @@ const App = () => {
             activeMenu
               ? (
                 <div className='sidebar w-72 fixed dark:bg-secondary-dark-bg bg-white duration-300 ease'>
-                  <Sidebar />
+                  <Sidebar handleNavBarClose={handleNavBarClose} />
                 </div>
               )
               : (
                 <div className='w-0 dark:bg-secondary-dark-bg duration-300 ease'>
-                  <Sidebar />
+                  <Sidebar handleNavBarClose={handleNavBarClose} />
                 </div>
               )
           }
@@ -80,35 +89,35 @@ const App = () => {
             <div>
               { // 🟨🟨🟨 UI For ==> side panel of theme settings <Component />
                 // display this <Component />, based on 'true' value
-                themeSettings && <ThemeSettings />
+                themeSettings && <ThemeSettings handleNavBarClose={handleNavBarClose} />
               }
 
               {/* 🟨🟨🟨 Route's for ==> going to different-different Component's  */}
               <Routes>
                 {/* 🟩🟩🟩 For ==> Dashboard */}
-                <Route path="/" element={<Ecommerce />} />
-                <Route path="/ecommerce" element={<Ecommerce />} />
+                <Route path="/" element={<Ecommerce handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/ecommerce" element={<Ecommerce handleNavBarClose={handleNavBarClose} />} />
 
                 {/* 🟩🟩🟩 For ==> Page's */}
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
+                <Route path="/orders" element={<Orders handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/employees" element={<Employees handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/customers" element={<Customers handleNavBarClose={handleNavBarClose} />} />
 
                 {/* 🟩🟩🟩 For ==> App's */}
-                <Route path="/kanban" element={<Kanban />} />
-                <Route path="/editor" element={<Editor />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/color-picker" element={<ColorPicker />} />
+                <Route path="/kanban" element={<Kanban handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/editor" element={<Editor handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/calendar" element={<Calendar handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/color-picker" element={<ColorPicker handleNavBarClose={handleNavBarClose} />} />
 
                 {/* 🟩🟩🟩 For ==> Charts */}
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/pie" element={<Pie />} />
-                <Route path="/line" element={<Line />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/pyramid" element={<Pyramid />} />
-                <Route path="/stacked" element={<Stacked />} />
-                <Route path="/financial" element={<Financial />} />
-                <Route path="/color-mapping" element={<ColorMapping />} />
+                <Route path="/bar" element={<Bar handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/pie" element={<Pie handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/line" element={<Line handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/area" element={<Area handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/pyramid" element={<Pyramid handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/stacked" element={<Stacked handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/financial" element={<Financial handleNavBarClose={handleNavBarClose} />} />
+                <Route path="/color-mapping" element={<ColorMapping handleNavBarClose={handleNavBarClose} />} />
               </Routes>
             </div>
 

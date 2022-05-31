@@ -10,7 +10,7 @@ const PropertyPane = ({ children }) => <div className="mt-5">{children}</div>;
 
 // this <Component /> call from ==> 
 // 🟨 App.js 🟨 React <Router /> Dom
-const Calendar = () => {
+const Calendar = ({ handleNavBarClose }) => {
 
   const [scheduleObj, setScheduleObj] = useState();
 
@@ -23,7 +23,10 @@ const Calendar = () => {
 
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div
+      onClick={handleNavBarClose} // for auto navbar close
+      className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl"
+    >
 
       <Header category="App" title="Calendar" />
 
@@ -72,4 +75,4 @@ const Calendar = () => {
   )
 }
 
-export default Calendar
+export default Calendar;

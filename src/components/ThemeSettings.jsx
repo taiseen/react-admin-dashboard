@@ -42,7 +42,7 @@ const ThemeSettings = () => {
             <input
               id="Light"
               type="radio"
-              name=" "
+              name="theme"
               value="Light"
               onChange={setMode}
               className="cursor-pointer"
@@ -72,7 +72,7 @@ const ThemeSettings = () => {
 
         <div className="p-4 border-t-1 border-color ml-4">
 
-          <p className="font-semibold text-xl ">Theme Colors</p>
+          <p className="font-semibold text-xl">Theme Colors</p>
 
           <div className="flex gap-3">
             {
